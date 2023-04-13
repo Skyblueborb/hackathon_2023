@@ -2,6 +2,12 @@
 
 {% block body %}
 
+<!-- Temporary, we need to move it to an external file -->
+<style>
+a {
+    color: #910000;
+}
+</style>
 <img src="{{ url_for('static', filename='banner.jpg') }}" class="img-fluid">
 <div class="text-center">
     <img src="{{ url_for('static', filename='title.png') }}" class="img-fluid">
