@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from collections import Counter
 from math import floor
 
-DOLLAR_COURSE_FACTOR = 100.0
+#DOLLAR_COURSE_FACTOR = 100.0
 CURRENT_PAY = 76153.80
 ZUS = "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/wskazniki/przecietne-wynagrodzenie-w-latach"
 
@@ -19,9 +19,7 @@ def csv_reader(path: str) -> dict[float, str]:
         return {numCleaner(i[0]): i[1] for i in data}
 
 
-def numCleaner(
-    number: str,
-) -> float:  # czyści wprowadzoną wartość z dziwnych formatacji
+def numCleaner(number: str) -> float:  # czyści wprowadzoną wartość z dziwnych formatacji
     output = number.replace(" ", "", -1).replace(",", ".", -1)
     try:
         return float(output)
@@ -39,7 +37,7 @@ def factor(year: int) -> float:  # średnia pensja dla roku [year]
 
 
 calculate = lambda amount, fact: (
-    -1 if amount < 0 else round((amount / fact) * CURRENT_PAY, 2)
+-1 if amount < 0 else round((amount / fact) * CURRENT_PAY, 2)
 )  # (-1): error
 
 
