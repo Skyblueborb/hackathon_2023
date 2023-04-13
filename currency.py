@@ -37,7 +37,7 @@ def factor(year: int) -> float:  # średnia pensja dla roku [year]
 
 
 calculate = lambda amount, fact: (
--1 if amount < 0 else round((amount / fact) * CURRENT_PAY, 2)
+-1 if amount < 0 else round((amount / CURRENT_PAY) * fact, 2)
 )  # (-1): error
 
 
