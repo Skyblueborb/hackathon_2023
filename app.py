@@ -14,7 +14,7 @@ CURRENCY = 1
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", show_button=0)
 
 
 @app.route("/converter", methods=["GET", "POST"])
@@ -29,7 +29,7 @@ def converter():
         nominals, calc, year, info, currency = NOMINALS, CALC, YEAR, INFO, CURRENCY
         NOMINALS, CALC, YEAR, INFO, CURRENCY = Counter(), 0, 1970, "", 0
         return render_template(
-            "converter.html", nominals=nominals, calc=calc, year=year, info=info
+            "converter.html", nominals=nominals, calc=calc, year=year, show_button=1, info=info
         )
     if request.method == "POST":
         sum = request.form.get("sum")
@@ -49,9 +49,9 @@ def converter():
 
 @app.route("/moda")
 def moda():
-    return render_template("moda.html")
+    return render_template("moda.html", show_button=0)
 
 @app.route("/mapa")
 def mapa():
-    return render_template("mapa.html")
+    return render_template("mapa.html", show_button=1)
 
