@@ -1,0 +1,10 @@
+.centred{
+  width: 41%; /* the funny */
+  margin: 0 auto;
+}
+#ALERT{
+  position: absolute;
+  top: 12.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
