@@ -9,11 +9,12 @@
         <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% block head %}{% endblock %}
+        <script src="/static/js/converter.js"></script>
     </head>
     <body>
         {% if show_button %}
         <form action="/" method="GET">
-            <button type="submit" class="btn">
+            <button type="submit" class="btn" onclick="clearSessionStorage()">
                 <i class="fas fa-chevron-left"></i>
             </button>
         </form>
