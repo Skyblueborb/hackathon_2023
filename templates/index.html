@@ -2,14 +2,6 @@
 
 {% block body %}
 
-<!-- Temporary, we need to move it to an external file -->
-<style>
-a {
-    color: #910000;
-    text-decoration: none;
-}
-
-</style>
 <img src="{{ url_for('static', filename='banner.jpg') }}" class="img-fluid">
 <div class="text-center">
     <img src="{{ url_for('static', filename='title.png') }}" class="img-fluid">
@@ -18,13 +10,13 @@ a {
     <div class="p-4">
         <div class="row flex-nowrap">
             <div class="col-4 p-1">
-                <a href="/converter">Przelicznik Walut</a>
+                <a href="/converter" class="mainscreen"><p class="mainscreen">Przelicznik Walut</p></a>
             </div>
             <div class="col-4 p-1">
-                <a href="/mapa">Mapa Gdyni</a>
+                <a href="/mapa" class="mainscreen"><p class="mainscreen">Mapa Gdyni</p></a>
             </div>
             <div class="col-4 p-1">
-                <a href="/moda">Moda</a>
+                <a href="/moda" class="mainscreen"><p class="mainscreen">Moda</p></a>
             </div>
         </div>
     </div>

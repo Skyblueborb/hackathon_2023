@@ -150,3 +150,14 @@ table {
 .headers{
     font-size: 48px;
 }
+p.mainscreen{
+    font-size: 41px;
+    font-family: "impact";
+    color: #910000;
+}
+p.mainscreen:hover{
+    color: #ee1111;
+}
+a.mainscreen{
+    text-decoration: none;
+}
