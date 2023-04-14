@@ -2,18 +2,16 @@
 
 {% block body %}
 
-
-<form action="/converter" method="post" class="input-group">
-    <input autocomplete="off" autofocus name="sum" placeholder="Suma PLN w 2023"
-                                                   type="text">
-    <input autocomplete="off" autofocus name="year" placeholder="Rok"
-                                                    type="number" value="1970">
-    <button type="submit" class="btn">Przelicz</button>
-</form>
-
+<div class="centred">
+    <form method="post" class="input-group">
+        <input autocomplete="off" autofocus name="sum" placeholder="Suma PLN w 2023" type="text">
+        <input autocomplete="off" autofocus name="year" placeholder="Rok" type="number" value="1970">
+        <button type="submit" class="btn btn-outline-success" id="PRZYCISK">Submit</button>
+    </form>
+</div>
+<div id="ALERT"></div> <!-- alerty js -->
 {% if calc > 0: %}
-<p> W roku {{ year }} to: {{ calc }}zł</a>
-
+<p> W roku {{ year }} to: {{ calc }}zł</p>
 <table class="table">
     <thead>
         <th>Nominały</th>
@@ -24,9 +22,12 @@
         <td scope="row"><img src="{{ image }}" alt="Example image" width="10%"></td>
         <td scope="row"> {{ count }}</td>
     </tr>
-
     {% endfor %}
 </table>
+{% else: %}
+    <script src="/static/js/converter.js"></script>
+    <script type="text/javascript">
+        converter();
+    </script>
 {% endif %}
-
 {% endblock %}

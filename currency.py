@@ -6,7 +6,7 @@ from math import floor
 #DOLLAR_COURSE_FACTOR = 100.0
 CURRENT_PAY = 76153.80
 ZUS = "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/wskazniki/przecietne-wynagrodzenie-w-latach"
-
+MONEY_DICT = {0: "static/csv/nominals.csv"}
 
 def csv_reader(path: str) -> dict[float, str]:
     if not isinstance(path, str):
@@ -41,8 +41,10 @@ calculate = lambda amount, fact: (
 )  # (-1): error
 
 
-def getNominals(money: float) -> Counter[str]:
-    noms = csv_reader("nominals.csv")
+def getNominals(money: float, currencyType = 0) -> Counter[str]:
+    if(currencyType not in range(0, 3)):
+        raise ValueError
+    noms = csv_reader(MONEY_DICT[currencyType])
     count = Counter()
     curMoney = money + 0.00001
     for val, nom in reversed(noms.items()):
