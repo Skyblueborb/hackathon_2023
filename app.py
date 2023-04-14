@@ -42,3 +42,12 @@ def converter():
         NOMINALS = getNominals(CALC)
 
         return redirect("/converter")
+
+@app.route("/moda")
+def moda():
+    return render_template("moda.html")
+
+@app.route("/mapa")
+def mapa():
+    return render_template("mapa.html")
+
