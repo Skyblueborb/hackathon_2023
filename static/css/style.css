@@ -34,7 +34,7 @@ table {
   height: 100%;
   border-collapse: collapse;
 }
-td {
+.modatd{
   width: 25%;
   height: 100%;
   padding: 0;
@@ -48,7 +48,7 @@ td {
 .zoom:hover {
   transform: scale(1.1);
 }
-img {
+.pafy {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -140,4 +140,13 @@ img {
 }
 .slider-track-green::-webkit-slider-runnable-track {
 	background-color: #007F00;
+}
+.rightism{
+    text-align: right;
+}
+.sizers{
+    font-size: 40px;
+}
+.headers{
+    font-size: 48px;
 }

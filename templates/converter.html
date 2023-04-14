@@ -19,13 +19,13 @@
 {% if calc > 0: %}
 <table class="table">
     <thead>
-        <th>{{'Nominały' if currency != 2 else 'Produkty'}}</th>
-        <th>Ilość</th>
+        <th><p class="headers">{{'Nominały' if currency != 2 else 'Produkty'}}</p></th>
+        <th><p class="rightism headers">Ilość</p></th>
     </thead>
     {% for image, count in nominals.items() %}
     <tr>
-        <td scope="row"><img src="{{ image }}" alt="Example image" {% if '$' in info %} onclick="onDollar()" {% endif %}width="10%"></td>
-        <td scope="row"> {{ count }}</td>
+        <td scope="row"><img src="{{ image }}" alt="Example image" {% if '$' in info %} onclick="onDollar()" {% endif %}width="30%"></td>
+        <td scope="row"><p class="rightism sizers">{{ count }}</p></td>
     </tr>
     {% endfor %}
 </table>
