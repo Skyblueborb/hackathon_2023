@@ -8,8 +8,6 @@ DOLLAR_COURSE_FACTOR = 100.0
 CURRENT_PAY = 76153.80
 ZUS = "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/wskazniki/przecietne-wynagrodzenie-w-latach"
 MONEY_DICT = {0: "static/csv/nominals.csv", 1: "static/csv/dollars.csv", 2: "static/csv/food.csv"}
-
-polishify = lambda num: str(round(num, 2)).replace(".", ",")
 def polishify(num: float) -> str:
     output = str(round(num, 2)).replace(".", ",")
     if search(",[0-9]$", output):
