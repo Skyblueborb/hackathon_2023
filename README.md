@@ -1,7 +1,7 @@
-# HISTHACK 2023
+# Gdynia lat 70.
 
 Przygotowanie gotowego projektu edukacji wykorzystującego nowe technologie.
-Projekt jest stworzony na mikro frameworku Flask stworzony na Pythonie.
+Projekt jest stworzony na mikro frameworku Flask.
 
 ## Uruchamianie
 
