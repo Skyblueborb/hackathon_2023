@@ -29,7 +29,7 @@ def converter():
         nominals, calc, year, info, currency = NOMINALS, CALC, YEAR, INFO, CURRENCY
         NOMINALS, CALC, YEAR, INFO, CURRENCY = Counter(), 0, 1970, "", 0
         return render_template(
-            "converter.html", nominals=nominals, calc=calc, year=year, info=info
+            "converter.html", nominals=nominals, calc=calc, year=year, info=info, currency=currency
         )
     if request.method == "POST":
         sum = request.form.get("sum")

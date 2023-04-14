@@ -12,9 +12,27 @@
     width: 10.5%;
 }
 .slider-track::-moz-range-track {
-	background-color: #a00;
+	background-color: #f00;
 }
 .slider-track::-webkit-slider-runnable-track {
 	background-color: #f00;
+}
+.slider-track-blue::-moz-range-track {
+	background-color: #5C3317;
+}
+.slider-track-blue::-webkit-slider-runnable-track {
+	background-color: #5C3317;
+}
+.slider-track-gold::-moz-range-track {
+	background-color: #CFB53B;
+}
+.slider-track-gold::-webkit-slider-runnable-track {
+	background-color: #CFB53B;
+}
+.slider-track-green::-moz-range-track {
+	background-color: #007F00;
+}
+.slider-track-green::-webkit-slider-runnable-track {
+	background-color: #007F00;
 }
 

@@ -6,9 +6,9 @@
     <form method="post" class="input-group">
         <input autocomplete="off" autofocus name="sum" placeholder="Suma PLN w 2023" type="text">
         <input autocomplete="off" autofocus name="year" placeholder="Rok" type="number" value="1970">
-        <button type="submit" class="btn btn-outline-success" id="PRZYCISK">Submit</button>
+        <button type="submit" class="btn btn-outline-success" id="PRZYCISK">Sprawdź</button>
         <p>&emsp;</p>
-        <input type="range" class="form-range slider-track" min="0" max="1" id="currency" name="currency">
+        <input type="range" class="form-range slider-track" min="0" max="2" id="currency" name="currency", oninput="updateValue(this)">
     </form>
     {% if calc > 0: %}
     <p>{{ info }}</p>
@@ -19,7 +19,7 @@
 {% if calc > 0: %}
 <table class="table">
     <thead>
-        <th>Nominały</th>
+        <th>{{'Nominały' if currency != 2 else 'Produkty'}}</th>
         <th>Ilość</th>
     </thead>
     {% for image, count in nominals.items() %}

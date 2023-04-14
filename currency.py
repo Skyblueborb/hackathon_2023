@@ -2,14 +2,19 @@ import requests
 from bs4 import BeautifulSoup
 from collections import Counter
 from math import floor
-from re import sub
+from re import search
 
 DOLLAR_COURSE_FACTOR = 100.0
 CURRENT_PAY = 76153.80
 ZUS = "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/wskazniki/przecietne-wynagrodzenie-w-latach"
-MONEY_DICT = {0: "static/csv/nominals.csv", 1: "static/csv/dollars.csv"}
+MONEY_DICT = {0: "static/csv/nominals.csv", 1: "static/csv/dollars.csv", 2: "static/csv/food.csv"}
 
 polishify = lambda num: str(round(num, 2)).replace(".", ",")
+def polishify(num: float) -> str:
+    output = str(round(num, 2)).replace(".", ",")
+    if search(",[0-9]$", output):
+        output += "0"
+    return output
 
 def csv_reader(path: str) -> dict[float, str]:
     if not isinstance(path, str):
@@ -46,17 +51,22 @@ calculate = lambda amount, fact: (
 
 def getNominals(money: float, currencyType = 0) -> Counter[str]:
     print(currencyType)
-    if currencyType != 0 and currencyType != 1:
+    if currencyType not in {0, 1, 2}:
         raise ValueError
     if currencyType == 1:
-        money = round(money / DOLLAR_COURSE_FACTOR, 2)
+        money = round(money / DOLLAR_COURSE_FACTOR, 2) + 0.00001
     noms = csv_reader(MONEY_DICT[currencyType])
     count = Counter()
-    curMoney = money + 0.00001
-    for val, nom in reversed(noms.items()):
-        temp = floor(curMoney // val)
-        if temp:
-            count[nom] += temp
-            curMoney -= val * temp
+    if currencyType in {0, 1}:
+        curMoney = money
+        for val, nom in reversed(noms.items()):
+            temp = floor(curMoney // val)
+            if temp:
+                count[nom] += temp
+                curMoney -= val * temp
+    elif currencyType == 2:
+        for val, nom in noms.items():
+            if floor(money // val):
+                count[nom] += floor(money // val)
     return count
 print(polishify(1234.56))
