@@ -9,7 +9,8 @@ app = Flask(__name__)
 NOMINALS = Counter()
 CALC = 0
 YEAR = 1970
-
+INFO = ""
+CURRENCY = 1
 
 @app.route("/")
 def index():
@@ -21,26 +22,29 @@ def converter():
     global NOMINALS
     global CALC
     global YEAR
+    global INFO
+    global CURRENCY
 
     if request.method == "GET":
-        nominals, calc, year = NOMINALS, CALC, YEAR
-        NOMINALS, CALC, YEAR = Counter(), 0, 1970
+        nominals, calc, year, info, currency = NOMINALS, CALC, YEAR, INFO, CURRENCY
+        NOMINALS, CALC, YEAR, INFO, CURRENCY = Counter(), 0, 1970, "", 0
         return render_template(
-            "converter.html", nominals=nominals, calc=calc, year=year
+            "converter.html", nominals=nominals, calc=calc, year=year, info=info
         )
-
     if request.method == "POST":
         sum = request.form.get("sum")
         if "-" in sum:
             return redirect("/converter")
         YEAR = request.form.get("year")
+        CURRENCY = int(request.form.get("currency"))
+        print(CURRENCY)
         try:
             fact = factor(int(YEAR))
             CALC = calculate(numCleaner(sum), fact)
         except (NotImplementedError, ValueError):
             return redirect("/converter")
-        NOMINALS = getNominals(CALC)
-
+        NOMINALS = getNominals(CALC, CURRENCY)
+        INFO = f"W roku {YEAR} to: {polishify(CALC/(DOLLAR_COURSE_FACTOR if CURRENCY == 1 else 1))} {'$' if CURRENCY == 1 else 'zł'}"
         return redirect("/converter")
 
 @app.route("/moda")

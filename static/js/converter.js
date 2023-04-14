@@ -24,5 +24,9 @@ function converter(){
 function clearSessionStorage(){
     sessionStorage.setItem("buttonClicked", 0);
 }
+function onDollar(){
+    const text = "Bony dolarowe to ciekawy element życia PRL. Były drukowanymi przez władze komunistyczne banknotami USD.\n Więcej informacji: https://pl.wikipedia.org/wiki/Bon_towarowy_PeKaO";
+    alert(text)
+}
 
 

@@ -1,5 +1,5 @@
 .centred{
-  width: 41%; /* the funny */
+  width: 46%; /* the funny */
   margin: 0 auto;
 }
 #ALERT{
@@ -8,3 +8,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+#currency{
+    width: 10.5%;
+}
+.slider-track::-moz-range-track {
+	background-color: #a00;
+}
+.slider-track::-webkit-slider-runnable-track {
+	background-color: #f00;
+}
+

@@ -14,3 +14,5 @@ class TestAddNumbers(unittest.TestCase):
         self.assertAlmostEqual(currency.calculate(100, 1000), 0.1*currency.CURRENT_PAY, delta=0.001)
         self.assertAlmostEqual(currency.calculate(50, 100), 0.5*currency.CURRENT_PAY, delta=0.001)
         self.assertAlmostEqual(currency.calculate(10000, currency.factor(1969)), round((10000/26088)*currency.CURRENT_PAY, 2), delta=0.001)
+    def test_polishify(self):
+        self.assertEqual(currency.polishify(5.5), "5,5")

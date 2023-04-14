@@ -2,11 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 from collections import Counter
 from math import floor
+from re import sub
 
-#DOLLAR_COURSE_FACTOR = 100.0
+DOLLAR_COURSE_FACTOR = 100.0
 CURRENT_PAY = 76153.80
 ZUS = "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/wskazniki/przecietne-wynagrodzenie-w-latach"
-MONEY_DICT = {0: "static/csv/nominals.csv"}
+MONEY_DICT = {0: "static/csv/nominals.csv", 1: "static/csv/dollars.csv"}
+
+polishify = lambda num: str(round(num, 2)).replace(".", ",")
 
 def csv_reader(path: str) -> dict[float, str]:
     if not isinstance(path, str):
@@ -42,8 +45,11 @@ calculate = lambda amount, fact: (
 
 
 def getNominals(money: float, currencyType = 0) -> Counter[str]:
-    if(currencyType not in range(0, 3)):
+    print(currencyType)
+    if currencyType != 0 and currencyType != 1:
         raise ValueError
+    if currencyType == 1:
+        money = round(money / DOLLAR_COURSE_FACTOR, 2)
     noms = csv_reader(MONEY_DICT[currencyType])
     count = Counter()
     curMoney = money + 0.00001
@@ -53,3 +59,4 @@ def getNominals(money: float, currencyType = 0) -> Counter[str]:
             count[nom] += temp
             curMoney -= val * temp
     return count
+print(polishify(1234.56))
