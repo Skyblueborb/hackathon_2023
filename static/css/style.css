@@ -1,21 +1,21 @@
-.centred{
+.centred {
   width: 46%; /* the funny */
   margin: 0 auto;
 }
-#ALERT{
+#ALERT {
   position: absolute;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#currency{
-    width: 10.5%;
+#currency {
+  width: 10.5%;
 }
 .slider-track::-moz-range-track {
-	background-color: #f00;
+  background-color: #f00;
 }
 .slider-track::-webkit-slider-runnable-track {
-	background-color: #f00;
+  background-color: #f00;
 }
 body {
   margin: 0;
@@ -124,22 +124,22 @@ table {
   margin-right: 20px;
 }
 .slider-track-blue::-moz-range-track {
-	background-color: #5C3317;
+  background-color: #5c3317;
 }
 .slider-track-blue::-webkit-slider-runnable-track {
-	background-color: #5C3317;
+  background-color: #5c3317;
 }
 .slider-track-gold::-moz-range-track {
-	background-color: #CFB53B;
+  background-color: #cfb53b;
 }
 .slider-track-gold::-webkit-slider-runnable-track {
-	background-color: #CFB53B;
+  background-color: #cfb53b;
 }
 .slider-track-green::-moz-range-track {
-	background-color: #007F00;
+  background-color: #007f00;
 }
 .slider-track-green::-webkit-slider-runnable-track {
-	background-color: #007F00;
+  background-color: #007f00;
 }
 .rightism{
     text-align: right;

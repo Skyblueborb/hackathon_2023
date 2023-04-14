@@ -2,5 +2,125 @@
 
 {% block body %}
 
+<script src="https://raw.github.com/davidjbradshaw/imagemap-resizer/master/js/imageMapResizer.min.js"></script>
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+<div class="tab">
+    <button class="tablinks btn" onclick="openTab(event, 'image1')">Spacer oczami
+        mieszkańca</button>
+    <button class="tablinks btn" onclick="openTab(event, 'image2')">Czarny czwartek</button>
+</div>
+
+<div id="image1" class="tabcontent">
+    <img src="{{ url_for('static', filename='img/mapa.png') }}" usemap="#main_map"
+    class="img-fluid" style="max-width: 75%;">
+
+    <map name="main_map">
+        <a href="#" class="popup-link">
+            <img src="{{ url_for('static', filename='img/Sad_Rejonowy.png') }}"
+                 class="img-fluid" alt="Budynek Sądu Rejonowego, pl. Konstytucji 5
+                        Budynek został zaprojektowany przez Z. Karpińskiego, T. Sieczkowskiego i R. Sołtyńskiego.   Zbudowano go w 1936 r. Jest to nowoczesny budynek o dynamicznej bryle składającej się z głównego prostopadłościanu zawierającego wejścia i wysoki hol główny oraz dwóch symetrycznych, biegnących po łuku skrzydeł i prostego skrzydła od strony ul. Jana z Kolna. W budynku zachowały się elementy oryginalnego wyposażenia m.in. drewniane ławy w holach oraz przy salach rozpraw, a także stolarka drzwi wewnątrz obiektu." usemap="#map1" style="display: none;">
+            <map name="map1">
+                <area target="" alt="" title="" href="#" coords="269,248,15" shape="circle">
+            </map>
+        </a>
+        <a href="#" class="popup-link">
+            <img src="{{ url_for('static', filename='img/PKP_Gdynia.png') }}"
+                                                                             class="img-fluid" alt="Budynek Dworca PKP, pl. Konstytucji 1
+                                                                                               Projekt obecnego budynku Dworca Głównego PKP został wykonany przez Wacława Tomaszewskiego. Projekt nowego dworca w Gdyni realizowano sukcesywnie etapami w okresie 1950-1955. W pierwotnym projekcie na parterze zaplanowano kasy biletowe, poczekalnię i świetlicę dla młodzieży, zaś na piętrze salę kinową i kawiarnię. Finalnie całe górne piętro zajęła największa w Gdyni kawiarnia pod prestiżowym wówczas szyldem “ORBIS”." usemap="#map2" style="display: none;">
+            <map name="map2">
+                <area target="" alt="" title="" href="#" coords="183,430,16" shape="circle">
+            </map>
+        </a>
+        <a href="#" class="popup-link">
+            <img src="{{ url_for('static', filename='img/Hale_Targowe.png') }}"
+                 class="img-fluid" alt="Zespół Miejskich Hal Targowych, ul. Wójta Radtkego 36
+                        Kompleks budynków o charakterystycznej bryle powstał w latach 1936-38 wg projektu Jerzego Müllera i Stefana Reychmana. Uwagę przyciąga unikalna konstrukcja głównej hali łukowej, składająca się z dziewięciu stalowych wiązarów o wysokości 18 m i rozpiętości 35 m. Obiekt ten to jeden z wielu zabytków Gdyni, który do dzisiaj pełni swą pierwotną funkcję. Halę łukową można bez problemu nie tylko zwiedzać, ale także korzystać z bogatej oferty handlowej." usemap="#map3" style="display: none;">
+            <map name="map3">
+                <area target="" alt="" title="" href="#" coords="512,167,16" shape="circle">
+            </map>
+        </a>
+        <a href="#" class="popup-link">
+            <img src="{{ url_for('static', filename='img/ul_Starowiejska.jpg') }}"
+                                                                                  class="img-fluid" alt="Ul. Starowiejska
+                                                                                                    Ulica Starowiejska to najstarsza ulica miasta. Jeden z jej końców znajduje się przy ul. Świętojańskiej. Większość z jej budynków została zbudowana podczas początku istnienia miasta. Ulica ma nawierzchnię z kostki brukowej. W latach 70’ stały tam m. in. Domek Abrahama czy hotel Centralny."usemap="#map4" style="display: none;">
+            <map name="map4">
+                <area target="" alt="" title="" href="#" coords="842,437,16" shape="circle">
+            </map>
+        </a>
+        <a href="#" class="popup-link">
+            <img src="{{ url_for('static', filename='img/Biurowiec_ZUS.png') }}"
+                 class="img-fluid" alt="Biurowiec ZUS (obecnie Urząd Miasta), ul. 10 Lutego 24
+                        Budynek został zaprojektowany przez Romana Piotrowskiego dla Zakładu Ubezpieczeń Pracowników Umysłowych, zaś zrealizowany w latach 1935-36, już jako budynek ZUS. Architektonicznie obiekt wyróżnia się poprzez zestawienie brył o różnych wysokościach i wyeksponowanie zaokrąglonej części. Po wojnie budynek był siedzibą Polskich Linii Oceanicznych, zaś obecnie mieści się tutaj Urząd Miasta Gdyni, Miejska Informacja oraz Gdyńskie Centrum Wspierania Przedsiębiorczości." usemap="#map5" style="display: none;">
+            <map name="map5">
+                <area target="" alt="" title="" href="#" coords="640,644,14" shape="circle">
+            </map>
+        </a>
+        <a href="#" class="popup-link">
+            <img src="{{ url_for('static', filename='img/Bankowiec.png') }}"
+                                                                            class="img-fluid" alt="“Bankowiec” Zespół Mieszkaniowy BGK, ul. 3 Maja 27/31
+                                                                                              Budynek zaprojektowany został przez inż. architekta Stanisława Ziołowskiego, a inwestorem był Fundusz Emerytalny Pracowników Banku Gospodarstwa Krajowego. Jego długość wzdłuż ul. 3 Maja wynosi ponad 90 metrów. Gmach wzniesiono w trzech odrębnych etapach i w zasadzie są to trzy oddzielne budynki z niezależną konstrukcją, od zewnątrz znakomicie ze sobą zespolone. W podziemiach “Bankowca” znajduje się Mini Muzeum założone przez mieszkańców budynku oraz działa Café Cyganeria, która powstała w 1946 roku."usemap="#map6" style="display: none;">
+            <map name="map6">
+                <area target="" alt="" title="" href="#" coords="720,727,14" shape="circle">
+            </map>
+        </a>
+        <a href="#" class="popup-link">
+            <img src="{{ url_for('static', filename='img/Urzad_Pocztowy.png') }}"
+                 class="img-fluid" alt="Urząd Pocztowo-telegraficzny (Obecnie Poczta Główna), Ul. 10 Lutego 10
+                                   Urząd pocztowo-telegraficzny to jeden z pierwszych budynków w stylu modernistycznym zbudowanych na terenie Śródmieścia Gdyni. Został zaprojektowany przez Juliana Putermana-Sadłowskiego, który współpracował z Antonim Miszewskim. Otwarcie, na które przyjechał wojewoda pomorski, nastąpiło w 1929 r. W 1938 roku dodano dwie dodatkowe kondygnacje. Obecnie na miejscu działa Poczta Polska." usemap="#map7" style="display: none;">
+            <map name="map7">
+                <area target="" alt="" title="" href="#" coords="1079,678,14" shape="circle">
+            </map>
+        </a>
+        <a href="#" class="popup-link">
+            <img src="{{ url_for('static', filename='img/Skwer_Kosciuszki.jpg') }}"
+                 class="img-fluid" alt="Skwer Kościuszki
+                        Skwer Kościuszki to ulica rozciągająca się od ul. Świętojańskiej do początku Mola Południowego. Skrzyżowanie Skweru z ul. Świętojańską oraz 10 Lutego stanowi punkt centralny Gdyni. Obok reprezentacyjnej ulicy leży wiele kamienic, sklepów czy tablic i pomników. Obecnie stoi tam też Dowództwo Marynarki Wojennej."usemap="#map8" style="display: none;">
+            <map name="map8">
+                <area target="" alt="" title="" href="#" coords="1456,753,14" shape="circle">
+            </map>
+        </a>
+    </map>
+
+
+    <a href="#" class="popup-link">
+        <img src="{{ url_for('static', filename='img/temp.png') }}"
+             class="img-fluid" alt="temp"usemap="#main_map" style="display: none;">
+    </a>
+</div>
+
+<div id="image2" class="tabcontent" style="display: none;">
+    <img src="image2.jpg">
+</div>
+
+<div class="popup">
+    <div class="popup-content">
+        <button type="button" class="btn-close popup-close" aria-label="Close"></button>
+        <img src="" class="popup-image" max_width="25%">
+        <div class="popup-divider"></div>
+        <p class="popup-text" style="text-align: justify;"></p>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+<script src="{{ url_for('static', filename='js/imageMapResizer.js') }}"></script>
+<script type="text/javascript">
+    imageMapResize();
+
+</script>
 
 {% endblock %}
