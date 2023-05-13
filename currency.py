@@ -48,7 +48,6 @@ calculate = lambda amount, fact: (
 
 
 def getNominals(money: float, currencyType = 0) -> Counter[str]:
-    print(currencyType)
     if currencyType not in {0, 1, 2}:
         raise ValueError
     if currencyType == 1:
@@ -67,4 +66,3 @@ def getNominals(money: float, currencyType = 0) -> Counter[str]:
             if floor(money // val):
                 count[nom] += floor(money // val)
     return count
-print(polishify(1234.56))

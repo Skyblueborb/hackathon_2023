@@ -1,5 +1,3 @@
-from math import exp
-from typing import Dict
 from flask import Flask, redirect, render_template, request
 from currency import *
 
